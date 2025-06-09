@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Product {
+  id: Int!
+  name: String!
+  description: String
+  feedbacks: [Feedback!]!
+  averageRating: Float
+}
+
+type Feedback {
+  id: Int!
+  rating: Int!
+  comment: String!
+  user: User!
+  product: Product!
+}
+
+type User {
+  id: Int!
+  name: String!
+  email: String!
+}
+
+type Query {
+  users: [User!]!
+  products: [Product!]!
+  feedbacks: [Feedback!]!
+}
+
+type Mutation {
+  createUser(name: String!, email: String!): User!
+  createProduct(name: String!, description: String): Product!
+  createFeedback(rating: Int!, comment: String!, userId: Int!, productId: Int!): Feedback!
+}
